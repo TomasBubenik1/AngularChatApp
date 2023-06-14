@@ -1,0 +1,195 @@
+/* You can add global styles to this file, and also import other style files */
+.hornybutton {
+    position: absolute;
+    margin-left: -100px;
+    height: 50px;
+    width: 100px;
+    margin-top: -15px;
+}
+
+.hornalista{
+    opacity: 50%;
+}
+
+.listuserov {
+    margin-right: 80%;
+    
+}
+
+.toss {
+    margin-left: 50px;
+    margin-top: 1%;
+}
+
+.toskovv {
+    border-style: groove;
+    border-bottom-color: darkslateblue;
+    border-right-color: purple;
+    border-top-color: darkslategray;
+    border-left-color: black;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    width: 25vw;
+    text-align: center;
+    overflow: auto;
+    
+
+}
+
+.bg {
+
+    background-image: url("https://wallpaperaccess.com/full/1261646.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 105vw;
+    height: 109vh;
+}
+
+
+
+
+.btnko {
+    cursor: pointer;
+    border: 1px solid #3498db;
+    background-color: transparent;
+    height: 30px;
+    width: 100px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.userimage {
+    width: 200px;
+    height: 200px;
+    border-style: groove;
+    border-bottom-color: darkslateblue;
+    border-right-color: purple;
+    border-top-color: darkslategray;
+    border-left-color: green;
+    border-radius: 100px;
+    margin-top: 30px;
+}
+
+.detailyUzivatela {
+
+    text-align: center;
+    background-color: black;
+    width: 450px;
+    border-radius: 50px;
+    opacity: 80%;
+    font-weight: bold;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: 80vh;
+}
+
+.chatBoxDiv{
+    
+    border-width: 5px;
+    margin-right: -350px;
+    padding-right: 50px;
+    width: 30px;
+}
+.chatBox{
+    margin-right: -350px;
+    border-color: black;
+    border-style: solid;
+    resize: none;
+    border-width: 5px;
+    width: 30vw;
+    height: 70vh;
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow-y: scroll
+
+}
+
+
+.textareachat{
+    display: flex;
+    margin-bottom: 10px;
+    resize: none;
+    width: 155%;
+  }
+
+  .chat-history {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .message-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  
+  .user-message {
+    align-self: flex-end;
+    background-color: lightblue;
+    color: white;
+  }
+  
+  .response-message {
+    align-self: flex-start;
+    background-color: lightgray;
+  }
+  
+  .user-message-content {
+    text-align: right;
+  }
+  
+  .response-message-content {
+    text-align: left;
+  }
+  
+  .response-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-right: 100%;
+  }
+  .response-message {
+    align-self: flex-start;
+    background-color: lightblue;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 100%;
+    margin-right: 100%;
+  }
+
+  .chatHistorydiv{
+    text-align: center;
+    background-color: black;
+    width: 450px;
+    border-radius: 50px;
+    opacity: 80%;
+    font-weight: bold;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: 80vh;
+  }
+
+  .historiachatov{
+    border: solid;
+    border-width: 5px;
+    border-color: red;
+  }

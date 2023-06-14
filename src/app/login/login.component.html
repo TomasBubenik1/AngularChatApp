@@ -1,0 +1,20 @@
+
+<div class="container d-flex justify-content-center">
+    <div class="col-3 justify-content-center text-center">
+        <h1>Login</h1>
+        <div class="input-group input-group-sm mt-5">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Meno</span>
+            <input type="text" [(ngModel)]="firstName" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mt-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Priezvisko</span>
+            <input type="text" [(ngModel)]="lastName" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <button type="button" class="btn btn-success mt-5" (click)="LoginUser()">Login</button>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
