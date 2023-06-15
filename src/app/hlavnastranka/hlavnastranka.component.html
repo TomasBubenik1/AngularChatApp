@@ -27,7 +27,7 @@
           <td>{{ loggedInUser.email }}</td>
           <td>{{ loginCas | date : "medium" }}</td>
           <td>{{ clickCounter }}</td>
-          <td>{{letterCount}}</td>
+          <td>{{ letterCount }}</td>
           <td></td>
         </tr>
       </tbody>
@@ -67,7 +67,7 @@
         </div>
         <div class="col">
           <div *ngIf="showndetails && selectedUser === showndetailsUser">
-            <div class="detailyUzivatela">
+            <div class="detailyUzivatela" style="color: white">
               <p><img class="userimage" src="{{ selectedUser?.image }}" /></p>
               <h2>
                 {{ selectedUser?.firstName }} {{ selectedUser?.lastName }}
@@ -79,45 +79,56 @@
               <p>MacAdress: {{ selectedUser?.macAddress }}</p>
               <p>IP: {{ selectedUser?.ip }}</p>
               <p>City: {{ selectedUser?.address?.city }}</p>
-              <p>Gender: {{ genderData?.gender }}</p>
-              <p>Gender propability: {{ genderData?.probability }}</p>
-              <p>Country: {{ ZippoData?.post_code }}</p>
-              <p>State: {{ ZippoData?.country }}</p>
+              <button (click)="showMore()">Ukaz viac</button>
+              <div *ngIf="showMoreDetails">
+                <p>Gender: {{ genderData?.gender }}</p>
+                <p>Gender propability: {{ genderData?.probability }}</p>
+                <p>State: {{ ZippoData?.country }}</p>
+              </div>
             </div>
           </div>
           <div *ngIf="!showndetails || selectedUser !== showndetailsUser">
             <div class="chatHistorydiv">
               <div>
-                <h2>Chat History</h2>
+                <h2 style="color: white">Chat History</h2>
                 <div *ngFor="let session of getChatSessions(); let i = index">
-                  <div *ngFor="let chat of session; let last = last">
+                  <div
+                    *ngFor="let chat of session; let last = last"
+                    class="historiachatov"
+                  >
                     <!-- Check if it's the last message in the session -->
                     <ng-container *ngIf="last">
                       <!-- Check if the message is sent by the current user -->
                       <ng-container *ngIf="chat[0].user.id === loggedInUser.id">
                         <!-- Display the updated message -->
-                        <p>Updated Message to {{ chat[0].user.firstName }}: {{ chat[0].message }}</p>
+                        <p>
+                          Updated Message to {{ chat[0].user.firstName }}:
+                          {{ chat[0].message }}
+                        </p>
                       </ng-container>
                       <!-- Check if the message is received by the current user -->
-                      <ng-container *ngIf="chat[0].user.id !== loggedInUser.id">
+                      <ng-container
+                        *ngIf="chat[0].user.id !== loggedInUser.id"
+                        style="color: white"
+                      >
                         <!-- Display the received message -->
-                        <p>Received Message from {{ chat[0].user.firstName }}: {{ chat[0].message }}</p>
+                        <p style="color: white">
+                          Posledna poslaná sprava {{ chat[0].user.firstName }}:
+                          {{ chat[0].message }}
+                        </p>
                       </ng-container>
                     </ng-container>
                     <!-- Add a separator between updated messages -->
-                    
                   </div>
                 </div>
-                
-                
-                
               </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="chatBox">
-            <div class="chat-window" style="width: 100%;"  *ngIf="selectedUser">
+          <div class="chatBox #id" *ngIf="ukazanyChat">
+            {{ divContent }}
+            <div class="chat-window" style="width: 100%" *ngIf="selectedUser">
               <div class="chat-history">
                 <ng-container
                   *ngFor="
@@ -148,25 +159,32 @@
                         </div>
                       </div>
                     </div>
-                      <div class="response-container">
-                        <div class="response">
-                          <div class="response-message">
-                            {{ message.response }}
-                          </div>
+                    <div class="response-container">
+                      <div class="response">
+                        <div class="response-message">
+                          {{ message.response }}
                         </div>
                       </div>
+                    </div>
                   </ng-container>
                 </ng-container>
               </div>
             </div>
           </div>
-          <div>
-            <textarea #messageTextArea (input)="onInput()" id="messageTextArea" class="textareachat" [(ngModel)]="message" (keydown.enter)="sendMessage()" placeholder="Type your message..."></textarea>
+          <div *ngIf="ukazanyChat">
+            <textarea
+              #messageTextArea
+              (input)="onInput()"
+              id="messageTextArea"
+              class="textareachat"
+              [(ngModel)]="message"
+              (keydown.enter)="sendMessage()"
+              placeholder="Type your message..."
+            ></textarea>
             <button (click)="sendMessage()">Send</button>
+            <button (click)="endChat()">End Chat</button>
           </div>
         </div>
-
-        
       </div>
     </div>
   </div>

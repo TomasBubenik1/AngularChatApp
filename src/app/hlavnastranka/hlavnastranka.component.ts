@@ -24,6 +24,10 @@ export class HlavnastrankaComponent implements OnInit {
   chatHistory: { [key: string]: any[] } = {};
   letterCount: number = 0;
   loginCas: Date | undefined
+  ukazanyChat: boolean = true;
+  divContent: string = '';
+  showMoreDetails: boolean = false;
+
 
   @ViewChild('messageTextArea') messageTextArea!: ElementRef;
 
@@ -57,6 +61,12 @@ export class HlavnastrankaComponent implements OnInit {
       );
     });
   }
+
+
+  clearDivContent() {
+    this.divContent = '';
+  }
+
 
   logOut() {
     this.router.navigate(['/info'])
@@ -105,6 +115,7 @@ export class HlavnastrankaComponent implements OnInit {
 
   startChatWithUser(user: any) {
     this.selectedUser = user;
+    this.ukazanyChat = true;
     const userId = user.id;
     if (userId && !this.chatHistory[userId]) {
       this.chatHistory[userId] = []; // Create a chat history array for the user if it doesn't exist
@@ -136,6 +147,17 @@ export class HlavnastrankaComponent implements OnInit {
       .nativeElement as HTMLTextAreaElement;
     this.letterCount = inputTextArea.value.length; // Update the letter count
   }
+
+
+  showMore(){
+    this.showMoreDetails = !this.showMoreDetails 
+  }
+
+  endChat() {
+   this.ukazanyChat = false
+  }
+  
+
 
   sendMessage() {
     const payload = { text: this.message }; // Update the message payload structure
